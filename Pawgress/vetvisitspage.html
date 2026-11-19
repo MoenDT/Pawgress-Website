@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Veterinarian Visits Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <h2>Pawgress</h2>          
+            <ul>
+                <li><a href="dashboardpage.html">Dashboard</a></li>
+                <li><a href="petprofilespage.html">Pet Profiles</a></li>
+                <li><a href="medicationhistorypage.html">Medication History</a></li>
+                <li class="currentpage"><a href="vetvisitspage.html#enstewclopedia">Vet Visits</a></li>
+                <li><a href="vaccinationspage.html">Vaccinations</a></li>
+                <li><a href="reminderspage.html">Reminders</a></li>
+            </ul>
+            <img src="pawprint.png" width="150px">
+        </nav>
+
+        <section>
+            <h1>Vet Visits</h1>
+
+            <button onclick="addRow()">+ Add Visit</button>
+
+            <table id="visitTable">
+                <thead>
+                    <tr>
+                        <th>Pet Name</th>
+                        <th>Visit Date</th>
+                        <th>Veterinarian</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="visitBody">
+                    <!-- to be filled with visits dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </body>
+    </html>

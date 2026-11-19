@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Medication History Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <h2>Pawgress</h2>   
+            <ul>
+                <li><a href="dashboardpage.html">Dashboard</a></li>
+                <li><a href="petprofilespage.html">Pet Profiles</a></li>
+                <li class="currentpage"><a href="medicationhistorypage.html">Medication History</a></li>
+                <li><a href="vetvisitspage.html#enstewclopedia">Vet Visits</a></li>
+                <li><a href="vaccinationspage.html">Vaccinations</a></li>
+                <li><a href="reminderspage.html">Reminders</a></li>
+            </ul>
+            <img src="pawprint.png" width="150px">
+        </nav>
+
+        <section>
+            <h1>Medication History</h1>
+            <p>Previously prescribed medications</p>
+
+            <button onclick="addRow()">+ Add Medication</button>
+
+            <table id="medTable">
+                <thead>
+                    <tr>
+                        <th>Pet Name</th>
+                        <th>Medication Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="medBody">
+                    <!-- to be filled with medications dynamically -->
+                </tbody>
+            </table>
+        </section>
+    </body>
+    </html>
