@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Visit Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <h2>Pawgress</h2>   
+            <ul>
+                <li><a href="dashboardpage.html">Dashboard</a></li>
+                <li><a href="petprofilespage.html">Pet Profiles</a></li>
+                <li><a href="medicationhistorypage.html">Medication History</a></li>
+                <li class="currentpage"><a href="vetvisitspage.html">Vet Visits</a></li>
+                <li><a href="vaccinationspage.html">Vaccinations</a></li>
+                <li><a href="reminderspage.html">Reminders</a></li>
+            </ul>
+            <img src="pawprint.png" width="150px">
+        </nav>
+
+        <section>
+            <h1>Add Vet Visit</h1>
+            <p>Enter your pet's vet visit information here.</p>
+
+            <form class="addform">
+                <label for="petname">Pet Name</label>
+                <input type="text" id="petname" name="petname" required>
+                <label for="visitdate">Visit Date</label>
+                <input type="text" id="visitdate" name="visitdate" required>
+                <label for="vet">Veterinarian</label>
+                <input type="text" id="vet" name="vet" required>
+                <label for="reason">Reason</label>
+                <input type="text" id="reason" name="reason" required>
+                <label for="status">Status</label>
+                <input type="text" id="status" name="status" required>
+            <button class="confirmbutton">Add Visit</button>
+            </form>  
+        </section>
+    </body>
+    </html>

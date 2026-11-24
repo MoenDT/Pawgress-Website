@@ -39,7 +39,6 @@
 a:hover{
     color:rgb(247, 242, 235);
     text-shadow:5px, 5px, 5px tan; 
-    font-size:24px;
 }
 
 body{
@@ -55,7 +54,10 @@ button {
     background:none;
     border:none;
 }
-
+label{
+    font-size:24px;
+    color:rgb(255, 255, 255);
+}
 p {
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -113,7 +115,6 @@ table{
     border-collapse:separate;
     border-spacing:0;
     border:1px solid #3b3b3b;
-    border-radius:12px;
     margin-top:30px;
     background-color:rgb(36, 36, 36);
 }
@@ -124,11 +125,12 @@ th{
     padding:15px;
     justify-content:center;
     text-align:center;
+    background-color:rgb(26, 26, 26);
 }
 
 td{
     border:none;
-    padding: 30px 15px;
+    padding: 15px;
     border-top: 1px solid #151515;
     text-align:center;
     color: rgb(177, 177, 177);
@@ -200,18 +202,22 @@ li>a {
 }
 
 .addbutton {
+    display: flex;
+    text-decoration:none;
     position: absolute;
     top: 50px;
     right: 50px;
+    font-size:20px;
     background: linear-gradient(180deg,#6cd38e 0%,#3a9b5c 50%,#287a45 100%);
     border-radius:6px;
     font-weight:600;
     border:#474747 1px solid;
     box-shadow: rgb(0, 0, 0) 2px 2px 5px;
-    width:150px;
-    height:20px;
+    width:300px;
+    height:40px;
     color:white;
     align-items:center;
+    justify-content:center;
     cursor: pointer;
 }
 
@@ -245,7 +251,7 @@ li>a {
     margin-top:30px;
 }
 
-.username input, .password input, .email input
+.username input, .password input, .email input, .addform input
  {
 width:500px;
 height:30px;
@@ -253,21 +259,21 @@ padding:20px;
 border-radius:10px;
 border:2px solid #6b6b6b;
 margin-bottom:30px;
-font-size:36px;
+font-size:28px;
 }
 
 .username input::placeholder,
 .password input::placeholder,
-.email input::placeholder {
+.email input::placeholder,
+.addform input::placeholder {
     color: black;
     opacity: 0.5;
 
 }
 
-.username input::placeholder,
-.password input::placeholder,
-.email input::placeholder {
-    color: black;
-    opacity: 0.5;
-
+.addform{
+    display:flex;
+    flex-direction:column;
+    gap:5x;
+    margin:20px;
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Vaccination Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <h2>Pawgress</h2>          
+            <ul>
+                <li><a href="dashboardpage.html">Dashboard</a></li>
+                <li><a href="petprofilespage.html">Pet Profiles</a></li>
+                <li><a href="medicationhistorypage.html">Medication History</a></li>
+                <li><a href="vetvisitspage.html">Vet Visits</a></li>
+                <li class="currentpage"><a href="vaccinationspage.html">Vaccinations</a></li>
+                <li><a href="reminderspage.html">Reminders</a></li>
+            </ul>
+            <img src="pawprint.png" width="150px">
+        </nav>
+
+        <section>
+            <h1>Add Vaccine</h1>
+            <p>Add your pets' vaccine dates here.</p>
+
+            <form class="addform">
+                <label for="petname">Pet Name</label>
+                <input type="text" id="petname" name="petname" required>
+                <label for="vacname">Vaccine Name</label>
+                <input type="text" id="vacname" name="vacname" required>
+                <label for="lastdate">Last Date</label>
+                <input type="text" id="lastdate" name="lastdate" required>
+                <label for="nextdate">Next Date</label>
+                <input type="text" id="nextdate" name="nextdate" required>
+            <button class="confirmbutton">Add Vaccine</button>
+            </form>  
+            </table>
+        </section>
+    </body>
+    </html>
