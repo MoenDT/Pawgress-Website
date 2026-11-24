@@ -12,7 +12,7 @@
                 <li><a href="dashboardpage.html">Dashboard</a></li>
                 <li class="currentpage"><a href="petprofilespage.html">Pet Profiles</a></li>
                 <li><a href="medicationhistorypage.html">Medication History</a></li>
-                <li><a href="vetvisitspage.html#enstewclopedia">Vet Visits</a></li>
+                <li><a href="vetvisitspage.html">Vet Visits</a></li>
                 <li><a href="vaccinationspage.html">Vaccinations</a></li>
                 <li><a href="reminderspage.html">Reminders</a></li>
             </ul>
@@ -22,17 +22,50 @@
         <section>
             <h1>Pet Profiles</h1>
 
-            <button onclick="addRow()">+ Add Visit</button>
+            <button class="addbutton" onclick="addRow()">+ Add Pet</button>
 
             <table id="petsTable">
                 <thead>
                     <tr>
-                        <th>Pet Name</th>
+                        <th>Name</th>
                         <th>Date Registered</th>
                         <th>Last Vet Visit</th>
-                        <th></th>
+                        <th>Personal Page</th>
                     </tr>
                 </thead>
+
+
+
+                    <tr>          <!-- START OF SCROLLING TEST - DELETE BEFORE SUBMISSION-->
+
+
+                        <td><img src="defaultpeticon.jpg" width="200px"></a><br>Bob</td> <!-- change out src to match pet image if applicable, ellse leave it-->   
+                        <td>7/5/2022</td>
+                        <td>11/20/2026</td>
+                        <td><a href="bob.html"><img src="arrowright.png" width="100px"></a></td>  <!--change out xxx.html to match pet case by case-->
+                    </tr>
+                                        <tr>
+                        <td><img src="defaultpeticon.jpg" width="200px"></a><br>Bob</td> <!-- change out src to match pet image if applicable, ellse leave it-->
+                        <td>7/5/2022</td>
+                        <td>11/20/2026</td>
+                        <td><a href="bob.html"><img src="arrowright.png" width="100px"></a></td>  <!--change out xxx.html to match pet case by case-->
+                    </tr>
+                                        <tr>
+                        <td><img src="defaultpeticon.jpg" width="200px"></a><br>Bob</td> <!-- change out src to match pet image if applicable, ellse leave it-->
+                        <td>7/5/2022</td>
+                        <td>11/20/2026</td>
+                        <td><a href="bob.html"><img src="arrowright.png" width="100px"></a></td>  <!--change out xxx.html to match pet case by case-->
+                    </tr>
+                                        <tr>
+                        <td><img src="defaultpeticon.jpg" width="200px"></a><br>Bob</td> <!-- change out src to match pet image if applicable, ellse leave it-->
+                        <td>7/5/2022</td>
+                        <td>11/20/2026</td>
+                        <td><a href="bob.html"><img src="arrowright.png" width="100px"></a></td>  <!--change out xxx.html to match pet case by case-->
+                    </tr>
+
+                            <!-- END OF SCROLLING TEST - DELETE -->
+
+
 
                 <tbody id="petsBody">
                     <!-- to be filled with pets dynamically -->

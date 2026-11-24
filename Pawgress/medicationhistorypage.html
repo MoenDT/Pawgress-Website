@@ -12,7 +12,7 @@
                 <li><a href="dashboardpage.html">Dashboard</a></li>
                 <li><a href="petprofilespage.html">Pet Profiles</a></li>
                 <li class="currentpage"><a href="medicationhistorypage.html">Medication History</a></li>
-                <li><a href="vetvisitspage.html#enstewclopedia">Vet Visits</a></li>
+                <li><a href="vetvisitspage.html">Vet Visits</a></li>
                 <li><a href="vaccinationspage.html">Vaccinations</a></li>
                 <li><a href="reminderspage.html">Reminders</a></li>
             </ul>
@@ -21,17 +21,17 @@
 
         <section>
             <h1>Medication History</h1>
-            <p>Previously prescribed medications</p>
+            <p>Previously prescribed medications are stored here.</p>
 
-            <button onclick="addRow()">+ Add Medication</button>
+            <button class="addbutton" onclick="addRow()">+ Add Medication</button>
 
             <table id="medTable">
                 <thead>
                     <tr>
                         <th>Pet Name</th>
                         <th>Medication Name</th>
-                        <th>Date</th>
-                        <th>Time</th>
+                        <th>Dosage</th>
+                        <th>Instructions</th>
                     </tr>
                 </thead>
 
