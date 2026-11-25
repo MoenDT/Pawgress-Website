@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="login.js" defer></script>
+</head>
+
+<body class="loginpage">
+    <h4>Create Account</h4>
+
+    <form class="addform" id="create-account" action="createaccountpage.html" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
+        <button class="confirmbutton" type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
