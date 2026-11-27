@@ -188,7 +188,7 @@ def add_pet():
 @app.route("/add-medication", methods=["POST"])
 def add_medication():
     pet_id = request.form["petid"]
-    name = request.form["medicationname"]
+    name = request.form["medname"]
     dosage = request.form["dosage"]
     instructions = request.form["instructions"]
     duration = request.form["duration"]
@@ -212,7 +212,7 @@ def add_medication():
 def add_vet_visit():
     pet_id = request.form["petid"]
     visit_date = request.form["visitdate"]
-    veterinarian = request.form["veterinarian"]
+    veterinarian = request.form["vet"]
     reason = request.form["reason"]
     status = request.form["status"]
 
@@ -234,7 +234,7 @@ def add_vet_visit():
 @app.route("/add-vaccination", methods=["POST"])
 def add_vaccination():
     pet_id = request.form["petid"]
-    vaccine_name = request.form["vaccinename"]
+    vaccine_name = request.form["vacname"]
     last_date = request.form["lastdate"]
     next_date = request.form["nextdate"]
 
