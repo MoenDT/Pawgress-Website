@@ -187,7 +187,7 @@ def add_pet():
 
 @app.route("/add-medication", methods=["POST"])
 def add_medication():
-    pet_id = request.form["petid"]
+    pet_name = request.form["petname"]
     name = request.form["medname"]
     dosage = request.form["dosage"]
     instructions = request.form["instructions"]
@@ -195,6 +195,20 @@ def add_medication():
 
     db = get_connection()
     cursor = db.cursor()
+
+    cursor.execute("""
+        SELECT PetID FROM Pets
+        WHERE PetName = %s AND UserID = %s
+    """, (pet_name, 1))
+
+    pets = cursor.fetchall()
+
+    if len(pets) != 1:
+        cursor.close()
+        db.close()
+        return "Pet not found or multiple pets have this name", 400
+
+    pet_id = pets[0][0]
 
     cursor.execute("""
         INSERT INTO Medications
@@ -210,7 +224,7 @@ def add_medication():
 
 @app.route("/add-vet-visit", methods=["POST"])
 def add_vet_visit():
-    pet_id = request.form["petid"]
+    pet_name = request.form["petname"]
     visit_date = request.form["visitdate"]
     veterinarian = request.form["vet"]
     reason = request.form["reason"]
@@ -218,6 +232,20 @@ def add_vet_visit():
 
     db = get_connection()
     cursor = db.cursor()
+    
+    cursor.execute("""
+        SELECT PetID FROM Pets
+        WHERE PetName = %s AND UserID = %s
+    """, (pet_name, 1))
+
+    pets = cursor.fetchall()
+
+    if len(pets) != 1:
+        cursor.close()
+        db.close()
+        return "Pet not found or multiple pets have this name", 400
+
+    pet_id = pets[0][0]
 
     cursor.execute("""
         INSERT INTO VetVisits
@@ -233,13 +261,27 @@ def add_vet_visit():
 
 @app.route("/add-vaccination", methods=["POST"])
 def add_vaccination():
-    pet_id = request.form["petid"]
+    pet_name = request.form["petname"]
     vaccine_name = request.form["vacname"]
     last_date = request.form["lastdate"]
     next_date = request.form["nextdate"]
 
     db = get_connection()
     cursor = db.cursor()
+
+    cursor.execute("""
+        SELECT PetID FROM Pets
+        WHERE PetName = %s AND UserID = %s
+    """, (pet_name, 1))
+
+    pets = cursor.fetchall()
+
+    if len(pets) != 1:
+        cursor.close()
+        db.close()
+        return "Pet not found or multiple pets have this name", 400
+
+    pet_id = pets[0][0]
 
     cursor.execute("""
         INSERT INTO Vaccinations
