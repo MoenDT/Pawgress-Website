@@ -286,3 +286,120 @@ font-size:28px;
     gap:5x;
     margin:20px;
 }
+/* Main dashboard */
+.dashboard-page nav {
+    flex-shrink: 0;
+}
+
+.dashboard-page .dashboard-content {
+    min-width: 0;
+}
+
+.dashboard-page .dashboard-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #555;
+}
+
+.dashboard-page .dashboard-welcome {
+    margin: 24px 0;
+}
+
+.dashboard-page .dashboard-welcome p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.dashboard-page .dashboard-welcome strong {
+    color: #fff;
+}
+
+.dashboard-page .activity-heading {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #94fab8;
+    justify-self: start;
+}
+
+.dashboard-page .dashboard-demo-note {
+    margin-bottom: 18px;
+}
+
+.dashboard-page #dashboard-events {
+    display: grid;
+    gap: 18px;
+}
+
+.dashboard-page .care-card {
+    padding: 20px;
+    background-color: #373737;
+    border: 1px solid #555;
+    border-left: 4px solid #69db91;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard-page .care-card h3 {
+    animation: none;
+    margin: 0 0 10px;
+    font-size: 21px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.dashboard-page .care-card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #d5d5d5;
+}
+
+.dashboard-page a:focus-visible {
+    outline: 3px solid #94fab8;
+    outline-offset: 3px;
+}
+
+.dashboard-page nav li.currentpage a {
+    color: #16251b;
+}
+
+@media (max-width: 700px) {
+    .dashboard-page {
+        flex-direction: column;
+    }
+
+    .dashboard-page nav {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .dashboard-page nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .dashboard-page nav ul li {
+        width: auto;
+        height: auto;
+        margin: 0;
+    }
+
+    .dashboard-page nav li a {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .dashboard-page nav > img {
+        display: none;
+    }
+
+    .dashboard-page .dashboard-content {
+        padding: 24px 16px;
+    }
+
+    .dashboard-page h1 {
+        font-size: 28px;
+    }
+}
