@@ -295,5 +295,96 @@ def add_vaccination():
 
     return redirect("/vaccinationspage.html")
 
+# update route
+@app.route("/edit-pet", methods=["POST"])
+def edit_pet():
+    pet_id = request.form["petid"]
+    name = request.form["petname"]
+    breed = request.form["breed"]
+    age = request.form["age"]
+    weight = request.form["weight"]
+    sex = request.form["sex"]
+    birthday = request.form["birthday"]
+
+    db = get_connection()
+    cursor = db.cursor()
+
+    cursor.execute("""
+        UPDATE Pets
+        SET PetName = %s,
+            Breed = %s,
+            Age = %s,
+            Weight = %s,
+            Sex = %s,
+            Birthday = %s
+        WHERE PetID = %s AND UserID = %s
+    """, (name, breed, age, weight, sex,
+          birthday, pet_id, 1))
+
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return redirect("/petprofilespage.html")
+    
+# delete route
+@app.route("/delete-pet", methods=["POST"])
+def delete_pet():
+    pet_id = request.form["petid"]
+
+    db = get_connection()
+    cursor = db.cursor()
+
+    cursor.execute("""
+        SELECT PetID FROM Pets
+        WHERE PetID = %s AND UserID = %s
+    """, (pet_id, 1))
+
+    if cursor.fetchone() is None:
+        cursor.close()
+        db.close()
+        return "Pet not found", 404
+
+    tables = ["Medications", "VetVisits", "Vaccinations",
+              "Reminders", "Activities", "Documents"]
+
+    for table in tables:
+        cursor.execute(
+            f"DELETE FROM {table} WHERE PetID = %s", (pet_id,)
+        )
+
+    cursor.execute(
+        "DELETE FROM Pets WHERE PetID = %s AND UserID = %s",
+        (pet_id, 1)
+    )
+
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return redirect("/petprofilespage.html")
+
+# delete med
+@app.route("/delete-medication", methods=["POST"])
+def delete_medication():
+    medication_id = request.form["medicationid"]
+
+    db = get_connection()
+    cursor = db.cursor()
+
+    cursor.execute("""
+        DELETE Medications
+        FROM Medications
+        JOIN Pets ON Medications.PetID = Pets.PetID
+        WHERE Medications.MedicationID = %s
+        AND Pets.UserID = %s
+    """, (medication_id, 1))
+
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return redirect("/medicationhistorypage.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
