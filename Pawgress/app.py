@@ -206,7 +206,7 @@ def add_medication():
     cursor.close()
     db.close()
 
-    return redirect("/medicationspage.html")
+    return redirect("/medicationhistorypage.html")
 
 @app.route("/add-vet-visit", methods=["POST"])
 def add_vet_visit():
