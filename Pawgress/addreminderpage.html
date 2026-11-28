@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Reminder Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav>
+            <h2>Pawgress</h2>          
+            <ul>
+                <li><a href="dashboardpage.html">Dashboard</a></li>
+                <li><a href="petprofilespage.html">Pet Profiles</a></li>
+                <li><a href="medicationhistorypage.html">Medication History</a></li>
+                <li><a href="vetvisitspage.html">Vet Visits</a></li>
+                <li><a href="vaccinationspage.html">Vaccinations</a></li>
+                <li class="currentpage"><a href="reminderspage.html">Reminders</a></li>
+            </ul>
+            <img src="pawprint.png" width="150px">
+        </nav>
+
+        <section>
+            <h1>Add Reminder</h1>
+            <p>Here, you can set reminders for your pets.</p>
+
+            <form class="addform" action="/add-reminder" method="POST">
+                <label for="petname">Pet Name</label>
+                <input type="text" id="petname" name="petname" required>
+                <label for="type">Type</label>
+                <input type="text" id="type" name="type" required>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required>
+                <label for="time">Date</label>
+                <input type="date" id="date" name="date" required>
+                <label for="recurring">Recurring?</label>
+                <input type="checkbox" id="recurring" name="recurring" required>
+                <button class="confirmbutton">Add Reminder</button>
+            </form>  
+            </table>
+        </section>
+    </body>
+    </html>

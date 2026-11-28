@@ -171,9 +171,14 @@ ul>li:hover{
 
 ul > li.currentpage > a {
     background-color: #90EE90;
+    color:black;
     border-radius: 12px;
 }
-
+ul > li.logoutbutton > a {
+    background-color: #ee9090;
+    color:black;
+    border-radius: 12px;
+}
 li>a {
     font-size:24px;
     font-weight:600;
@@ -222,7 +227,7 @@ li>a {
     font-weight:600;
     border:#474747 1px solid;
     box-shadow: rgb(0, 0, 0) 2px 2px 5px;
-    width:300px;
+    width:200px;
     height:40px;
     color:white;
     align-items:center;
@@ -240,6 +245,7 @@ li>a {
     padding:20px;
     font-size:36px;
     font-weight:600;
+    margin-top:50px;
     color:white;
     justify-content: center;
     align-items:center;
@@ -258,6 +264,12 @@ li>a {
     color:tan;
     font-size:24px;
     margin-top:30px;
+}
+
+input[type="checkbox"] {
+    position:relative;
+    right:200px;
+    top:10px;
 }
 
 .username input, .password input, .email input, .addform input
@@ -286,6 +298,7 @@ font-size:28px;
     gap:5x;
     margin:20px;
 }
+
 /* Main dashboard */
 .dashboard-page nav {
     flex-shrink: 0;
