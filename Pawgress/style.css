@@ -514,3 +514,31 @@ font-size:28px;
         width: 900px;
     }
 }
+
+.zoomIn {
+    animation: zoomIn 0.6s;
+}
+
+.zoomOut {
+    animation: zoomOut 0.6s;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
