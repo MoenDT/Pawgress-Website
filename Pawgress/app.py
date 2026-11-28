@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, abort, request, redirect
+from flask import Flask, send_from_directory, abort, request, redirect, jsonify
 from database import get_connection
 
 app = Flask(__name__)
@@ -18,6 +18,24 @@ def pets():
     db.close()
 
     return str(results)
+    
+@app.route("/api/pets")
+def get_pets():
+    db = get_connection()
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT PetID, PetName, Breed, Age
+        FROM Pets
+        WHERE UserID = %s
+    """, (1,))
+
+    results = cursor.fetchall()
+
+    cursor.close()
+    db.close()
+
+    return jsonify(results)
 
 @app.route("/medications")
 def medications():
