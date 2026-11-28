@@ -5,9 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    db = get_connection()
-    db.close()
-    return "Pawgress database connected"
+    return send_from_directory(".", "loginpage.html")
 
 @app.route("/pets")
 def pets():
