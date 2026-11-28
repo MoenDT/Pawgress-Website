@@ -1,29 +1,74 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Dashboard Page</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <nav>
-            <h2>Pawgress</h2>
-            <ul>
-                <li class="currentpage"><a href="dashboardpage.html">Dashboard</a></li>
-                <li><a href="petprofilespage.html">Pet Profiles</a></li>
-                <li><a href="medicationhistorypage.html">Medication History</a></li>
-                <li><a href="vetvisitspage.html">Vet Visits</a></li>
-                <li><a href="vaccinationspage.html">Vaccinations</a></li>
-                <li><a href="reminderspage.html">Reminders</a></li>
-                <li><a href="loginpage.html">Log Out</a></li>
-            </ul>
-            <img src="pawprint.png" width="150px">
-        </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawgress - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <nav aria-label="Main navigation">
+        <h2>Pawgress</h2>
+        <ul>
+            <li class="currentpage">
+                <a href="dashboardpage.html" aria-current="page">Dashboard</a>
+            </li>
+            <li><a href="petprofilespage.html">Pet Profiles</a></li>
+            <li><a href="medicationhistorypage.html">Medication History</a></li>
+            <li><a href="vetvisitspage.html">Vet Visits</a></li>
+            <li><a href="vaccinationspage.html">Vaccinations</a></li>
+            <li><a href="reminderspage.html">Reminders</a></li>
+            <li><a href="loginpage.html">Log Out</a></li>
+        </ul>
+        <img src="pawprint.png" width="150" alt="">
+    </nav>
 
-        <section>
-            <h1>Dashboard</h1>
-        </section>
+    <section class="dashboard-content" aria-labelledby="dashboard-title">
+        <header class="dashboard-header">
+            <h1 id="dashboard-title">Pawgress - Dashboard</h1>
+        </header>
 
+        <div class="dashboard-welcome">
+            <p>Welcome back, <strong id="dashboard-username">User</strong>.</p>
+            <p>Here's what's been happening recently.</p>
+        </div>
 
-    </body>
-    </html>
+        <div class="dashboard-activity">
+            <h2 class="activity-heading">Recent and Upcoming Care</h2>
+            <p class="dashboard-demo-note">
+                Sample information shown below.
+            </p>
+
+            <!-- Sample cards can be replaced with saved data later. -->
+            <div id="dashboard-events">
+                <article class="care-card">
+                    <h3>Veterinary Visit - Max</h3>
+                    <p>
+                        <time datetime="2026-09-05T09:00">
+                            September 5, 2026 at 9:00 AM
+                        </time>
+                    </p>
+                </article>
+
+                <article class="care-card">
+                    <h3>Grooming - George</h3>
+                    <p>
+                        <time datetime="2026-10-06T10:00">
+                            October 6, 2026 at 10:00 AM
+                        </time>
+                    </p>
+                </article>
+
+                <article class="care-card">
+                    <h3>Veterinary Visit - Max</h3>
+                    <p>
+                        <time datetime="2026-12-02T10:00">
+                            December 2, 2026 at 10:00 AM
+                        </time>
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
