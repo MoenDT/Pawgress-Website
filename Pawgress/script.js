@@ -1,53 +1,38 @@
-function clearInput(inputId) {  //function to clear inputs from the username and password widgets found on the login screen
-    document.getElementById(inputId).value = "";
+function closeNotesModal() {
+    const contentBox = document.getElementsByClassName("modalContent")[0];
+    contentBox.classList.remove("zoomIn");
+    contentBox.classList.add("zoomOut");
+
+    const notesModal = document.getElementById("notesModal");
+    setTimeout(function () {
+        notesModal.style.display = "none";
+        contentBox.classList.replace("zoomOut", "zoomIn");
+    }, 500);
 }
 
+document.getElementById("visitBody").addEventListener("click", function (event) {
+    const button = event.target.closest(".viewnotesbutton");
+    if (!button) return;
 
-function populatePetTable() { //function for populating tables for respective pages: vaccinations, vetvisits, etc <- TO BE HEAVILY MODIFIED LATER
-    const tableBody = document.getElementById("petTableBody");
+    // Populates the notes text and opens the modal when clicked
+    const notesModal = document.getElementById("notesModal");
+    const modalNotesText = document.getElementById("modalNotesText");
+    if (modalNotesText && button.dataset.notes) {
+        modalNotesText.textContent = button.dataset.notes;
+    }
 
-    tableBody.replaceChildren();
+    notesModal.style.display = "block";
+});
 
-    pets.forEach(pet => {
-        const row = tableBody.insertRow();
+document.querySelector("#notesModal .modalContent span").addEventListener("click", function () {
+    // Closes the notes modal with animation when the close button is clicked
+    closeNotesModal();
+});
 
-        row.insertCell().textContent = pet.name;
-        row.insertCell().textContent = pet.registered;
-        row.insertCell().textContent = pet.lastVetVisit;
-
-        const actionCell = row.insertCell();
-
-        const link = document.createElement("a");
-        link.href = `pet-details.html?id=${pet.id}`;
-        link.textContent = "→";
-        link.setAttribute("aria-label", `View ${pet.name}'s profile`);
-
-        actionCell.appendChild(link);
-    });
-}
-
-populatePetTable(); //fills the pet table
-
-function addRow(medication, pet, date, time) { //addRow function to add rows to tables found across pages such as vaccinations, vetvisits, etc.
-    const table = document.getElementById("medicationBody");
-
-    const row = table.insertRow();
-
-    [medication, pet, date, time].forEach(value => {
-        const cell = row.insertCell();
-        cell.textContent = value;
-    });
-
-    const actionCell = row.insertCell();
-    const button = document.createElement("button");
-
-    button.textContent = "Delete";
-    button.addEventListener("click", () => row.remove());
-
-    actionCell.appendChild(button);
-}
-
-function deleteRow(button) { //delete row function for various tables
-    const row = button.closest("tr"); //since the delete key is on each row, locating by "tr" works
-    row.remove();
-}
+// Close the modal with animation when clicking outside of it
+window.addEventListener("click", function (event) {
+    const notesModal = document.getElementById("notesModal");
+    if (event.target === notesModal) {
+        closeNotesModal();
+    }
+});

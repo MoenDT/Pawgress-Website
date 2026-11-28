@@ -1,79 +1,80 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Veterinarian Visits Page</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="notes.js" defer></script>
-    </head>
-    <body>
-        <nav>
-            <h2>Pawgress</h2>
-            <ul>
-                <li><a href="dashboardpage.html">Dashboard</a></li>
-                <li><a href="petprofilespage.html">Pet Profiles</a></li>
-                <li><a href="medicationhistorypage.html">Medication History</a></li>
-                <li class="currentpage"><a href="vetvisitspage.html">Vet Visits</a></li>
-                <li><a href="vaccinationspage.html">Vaccinations</a></li>
-                <li><a href="reminderspage.html">Reminders</a></li>
-            </ul>
-            <img src="pawprint.png" width="150px">
-        </nav>
+<html lang="en">
 
-        <section>
-            <h1>Vet Visits</h1>
-            <p>Previous veterinary visits can be logged here.</p>
-            <a class="addbutton" href="addvetvisitpage.html">+ Add Visit</a>
-            <table id="visitTable">
-                <thead>
-                    <tr>
-                        <th>Pet Name</th>
-                        <th>Visit Date</th>
-                        <th>Veterinarian</th>
-                        <th>Reason</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
+<head>
+    <meta charset="UTF-8">
+    <title>Veterinarian Visits Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="notes.js" defer></script>
+</head>
 
-                <div id="notesModal" class="modal">
-                    <div class="modalContent zoomIn">
-                        <header class="container modalHeader">
-                            <h2>Vet Visit Notes</h2>
-                            <span class="closeBtn">&times;</span>
-                        </header>
-                        <div class="container modalNotes">
-                            <!-- dynamically insert vet visit notes here-->
-                            <p>Notes for the visit will be displayed here.</p>
-                        </div>
-                    </div>
+<body>
+    <nav>
+        <h2>Pawgress</h2>
+        <ul>
+            <li><a href="dashboardpage.html">Dashboard</a></li>
+            <li><a href="petprofilespage.html">Pet Profiles</a></li>
+            <li><a href="medicationhistorypage.html">Medication History</a></li>
+            <li class="currentpage"><a href="vetvisitspage.html">Vet Visits</a></li>
+            <li><a href="vaccinationspage.html">Vaccinations</a></li>
+            <li><a href="reminderspage.html">Reminders</a></li>
+        </ul>
+        <img src="pawprint.png" width="150px">
+    </nav>
+
+    <section>
+        <h1>Vet Visits</h1>
+        <p>Previous veterinary visits can be logged here.</p>
+        <a class="addbutton" href="addvetvisitpage.html">+ Add Visit</a>
+        <table id="visitTable">
+            <thead>
+                <tr>
+                    <th>Pet Name</th>
+                    <th>Visit Date</th>
+                    <th>Veterinarian</th>
+                    <th>Reason</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="visitBody">
+                <!-- to be filled with visits dynamically -->
+            </tbody>
+        </table>
+
+        <div id="notesModal" class="modal">
+            <div class="modalContent zoomIn">
+                <header class="container modalHeader">
+                    <h2>Vet Visit Notes</h2>
+                    <span class="closeBtn">&times;</span>
+                </header>
+                <div class="container modalNotes">
+                    <p id="modalNotesText">Notes for the visit will be displayed here.</p>
                 </div>
+            </div>
+        </div>
 
-                <tbody id="visitBody">
-                    <!-- to be filled with visits dynamically -->
-<script>
-    fetch("/api/vet-visits")
-    .then(response => response.json())
-    .then(visits => {
-        const table = document.getElementById("visitBody");
+        <script>
+            fetch("/vet-visits")
+                .then(response => response.json())
+                .then(visits => {
+                    const table = document.getElementById("visitBody");
 
-        visits.forEach(visit => {
-            const row = document.createElement("tr");
+                    visits.forEach(visit => {
+                        const row = document.createElement("tr");
 
-            row.innerHTML = `
-                <td>${visit.PetName}</td>
-                <td>${visit.VisitDate || "N/A"}</td>
-                <td>${visit.Veterinarian || "N/A"}</td>
-                <td>${visit.Reason || "N/A"}</td>
-                <td><button class="viewNotesBtn" data-notes="${visit.Notes || "No notes available."}">View Notes</button></td>
-            `;
+                        row.innerHTML = `
+                            <td>${visit.PetName}</td>
+                            <td>${visit.VisitDate || "N/A"}</td>
+                            <td>${visit.Veterinarian || "N/A"}</td>
+                            <td>${visit.Reason || "N/A"}</td>
+                            <td><button class="viewnotesbutton" data-notes="${visit.Notes || "No notes available."}">View Notes</button></td>
+                        `;
 
-            table.appendChild(row);
-        });
-    })
-    .catch(error => console.error(error));
-</script>
-                </tbody>
-            </table>
-        </section>
-    </body>
-    </html>
+                        table.appendChild(row);
+                    });
+                })
+                .catch(error => console.error(error));
+        </script>
+    </section>
+</body>
+</html>
