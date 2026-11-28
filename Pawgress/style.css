@@ -416,3 +416,101 @@ font-size:28px;
         font-size: 28px;
     }
 }
+
+.viewnotesbutton {
+    background: linear-gradient(180deg,#6cd38e 0%,#3a9b5c 50%,#287a45 100%);
+    border-radius:6px;
+    font-weight:600;
+    border:#474747 1px solid;
+    box-shadow: rgb(0, 0, 0) 2px 2px 5px;
+    width:150px;
+    height:30px;
+    color:white;
+    align-items:center;
+    justify-content:center;
+    cursor: pointer;
+}
+
+
+/* Base modal container and content box */
+.closeBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 36px;
+    background-color: rgb(82, 82, 82);
+    color: white;
+
+}
+
+.closeBtn:hover {
+    color: #69db91;
+}
+
+.modal {
+    z-index: 3;
+    display: none;
+    padding-top: 100px;
+    position: fixed;
+    inset: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+    margin: auto;
+    background-color: #373737;
+    position: relative;
+    width: 600px;
+    border: 1px solid #373737;
+    border-radius: 8px;
+}
+
+.modalHeader{
+    margin: 0;
+    padding: 10px;
+    background-color: #69db91;
+}
+.modalHeader h2{
+    margin: 0;
+    color: white;
+    font-size: 24px;
+}
+
+.modalNotes{
+    padding: 20px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 600px) {
+    .modalContent {
+        margin: 0 10px;
+        width: auto !important;
+    }
+
+    .modal {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modalContent {
+        width: 500px;
+    }
+
+    .modal {
+        padding-top: 50px;
+    }
+}
+
+@media (min-width: 993px) {
+    .modalContent {
+        width: 900px;
+    }
+}

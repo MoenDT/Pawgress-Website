@@ -4,10 +4,11 @@
         <meta charset="UTF-8">
         <title>Veterinarian Visits Page</title>
         <link rel="stylesheet" href="style.css">
+        <script src="notes.js" defer></script>
     </head>
     <body>
         <nav>
-            <h2>Pawgress</h2>          
+            <h2>Pawgress</h2>
             <ul>
                 <li><a href="dashboardpage.html">Dashboard</a></li>
                 <li><a href="petprofilespage.html">Pet Profiles</a></li>
@@ -30,12 +31,46 @@
                         <th>Visit Date</th>
                         <th>Veterinarian</th>
                         <th>Reason</th>
-                        <th>Status</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
 
+                <div id="notesModal" class="modal">
+                    <div class="modalContent">
+                        <header class="container modalHeader">
+                            <h2>Vet Visit Notes</h2>
+                            <span class="closeBtn">&times;</span>
+                        </header>
+                        <div class="container modalNotes">
+                            <!-- dynamically insert vet visit notes here-->
+                            <p>Notes for the visit will be displayed here.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <tbody id="visitBody">
                     <!-- to be filled with visits dynamically -->
+                    <tr>
+                        <td>Max</td>
+                        <td>2026-10-15</td>
+                        <td>Dr. Smith</td>
+                        <td>Annual Checkup</td>
+                        <td><button class="viewnotesbutton" id="viewNotesBtn">View Notes</button></td>
+                    </tr>
+                    <tr>
+                        <td>Shilo</td>
+                        <td>2025-9-7</td>
+                        <td>Dr. Smith</td>
+                        <td>Vaccination</td>
+                        <td><button class="viewnotesbutton" id="viewNotesBtn">View Notes</button></td>
+                    </tr>
+                    <tr>
+                        <td>Max</td>
+                        <td>2024-6-25</td>
+                        <td>Dr. Smith</td>
+                        <td>Flea Treatment</td>
+                        <td><button class="viewnotesbutton" id="viewNotesBtn">View Notes</button></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
