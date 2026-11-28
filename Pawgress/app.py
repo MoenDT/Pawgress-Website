@@ -18,7 +18,7 @@ def pets():
     db.close()
 
     return str(results)
-    
+
 @app.route("/api/pets")
 def get_pets():
     db = get_connection()
@@ -67,14 +67,15 @@ def medications():
 @app.route("/vet-visits")
 def vet_visits():
     db = get_connection()
-    cursor = db.cursor()
+    cursor = db.cursor(dictionary=True)
 
     cursor.execute("""
         SELECT Pets.PetName,
                VetVisits.VisitDate,
                VetVisits.Veterinarian,
                VetVisits.Reason,
-               VetVisits.Status
+               VetVisits.Status,
+               VetVisits.Notes
         FROM VetVisits
         JOIN Pets ON VetVisits.PetID = Pets.PetID
     """)
@@ -84,7 +85,7 @@ def vet_visits():
     cursor.close()
     db.close()
 
-    return str(results)
+    return jsonify(results)
 
 @app.route("/vaccinations")
 def vaccinations():
@@ -253,7 +254,7 @@ def add_vet_visit():
 
     db = get_connection()
     cursor = db.cursor()
-    
+
     cursor.execute("""
         SELECT PetID FROM Pets
         WHERE PetName = %s AND UserID = %s
@@ -347,7 +348,7 @@ def edit_pet():
     db.close()
 
     return redirect("/petprofilespage.html")
-    
+
 # delete route
 @app.route("/delete-pet", methods=["POST"])
 def delete_pet():
@@ -406,7 +407,7 @@ def delete_medication():
     db.close()
 
     return redirect("/medicationhistorypage.html")
-    
+
 @app.route("/add-reminder", methods=["POST"])
 def add_reminder():
     pet_name = request.form["petname"]

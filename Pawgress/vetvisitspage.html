@@ -50,27 +50,28 @@
 
                 <tbody id="visitBody">
                     <!-- to be filled with visits dynamically -->
-                    <tr>
-                        <td>Max</td>
-                        <td>2026-10-15</td>
-                        <td>Dr. Smith</td>
-                        <td>Annual Checkup</td>
-                        <td><button class="viewnotesbutton" id="viewNotesBtn">View Notes</button></td>
-                    </tr>
-                    <tr>
-                        <td>Shilo</td>
-                        <td>2025-9-7</td>
-                        <td>Dr. Smith</td>
-                        <td>Vaccination</td>
-                        <td><button class="viewnotesbutton" id="viewNotesBtn">View Notes</button></td>
-                    </tr>
-                    <tr>
-                        <td>Max</td>
-                        <td>2024-6-25</td>
-                        <td>Dr. Smith</td>
-                        <td>Flea Treatment</td>
-                        <td><button class="viewnotesbutton" id="viewNotesBtn">View Notes</button></td>
-                    </tr>
+<script>
+    fetch("/api/vet-visits")
+    .then(response => response.json())
+    .then(visits => {
+        const table = document.getElementById("visitBody");
+
+        visits.forEach(visit => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${visit.PetName}</td>
+                <td>${visit.VisitDate || "N/A"}</td>
+                <td>${visit.Veterinarian || "N/A"}</td>
+                <td>${visit.Reason || "N/A"}</td>
+                <td><button class="viewNotesBtn" data-notes="${visit.Notes || "No notes available."}">View Notes</button></td>
+            `;
+
+            table.appendChild(row);
+        });
+    })
+    .catch(error => console.error(error));
+</script>
                 </tbody>
             </table>
         </section>

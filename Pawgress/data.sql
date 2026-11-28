@@ -10,7 +10,9 @@ INSERT INTO Medications (PetID, MedicationName, Dosage, Instructions, Duration)
 VALUES (1, 'Amoxi', '1/2 tablet', 'Give with food, twice daily (Every 12 hours)', 'Until bottle is empty');
 
 INSERT INTO VetVisits (PetID, VisitDate, Veterinarian, Reason, Status, Notes)
-VALUES (1, '2026-11-12', 'Dr. Galle', 'Injured paw', 'Completed', 'Make follow-up if condition worsens');
+VALUES (1, '2026-11-12', 'Dr. Galle', 'Injured paw', 'Completed', 'Make follow-up if condition worsens'),
+       (1, '2026-11-23', 'Dr. Galle', 'Annual vaccines', 'Completed', 'Bring vaccination records'),
+       (1, '2026-06-21', 'Dr. Galle', 'Check up', 'Completed', 'Routing care. Zeus exhibits a healthy weight and is up to date on vaccines. Recommend flea/tick/worm prevention.');
 
 INSERT INTO Vaccinations (PetID, VaccineName, LastDate, NextDate)
 VALUES (1, 'Rabies', '2026-07-15', '2029-07-15');
