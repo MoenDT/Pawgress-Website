@@ -25,9 +25,14 @@ def get_pets():
     cursor = db.cursor(dictionary=True)
 
     cursor.execute("""
-        SELECT PetID, PetName, Breed, Age
+        SELECT Pets.PetID,
+               Pets.PetName,
+               Pets.DateRegistered,
+               MAX(VetVisits.VisitDate) AS LastVetVisit
         FROM Pets
-        WHERE UserID = %s
+        LEFT JOIN VetVisits ON Pets.PetID = VetVisits.PetID
+        WHERE Pets.UserID = %s
+        GROUP BY Pets.PetID, Pets.PetName, Pets.DateRegistered
     """, (1,))
 
     results = cursor.fetchall()
