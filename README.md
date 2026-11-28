@@ -28,9 +28,10 @@ Create and activate a virtual environment inside the project root, then install 
 
 ```bash
 python -m venv venv
-source venv/bin/activate (venv/Scripts/activate for git bash in windows)
+source venv/bin/activate
 pip install flask mysql-connector-python
 ```
+Note: Use ```venv/Scripts/activate``` for git bash in windows
 
 ### Windows (PowerShell)
 
