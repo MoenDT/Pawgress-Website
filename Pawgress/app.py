@@ -406,6 +406,43 @@ def delete_medication():
     db.close()
 
     return redirect("/medicationhistorypage.html")
+    
+@app.route("/add-reminder", methods=["POST"])
+def add_reminder():
+    pet_name = request.form["petname"]
+    reminder_type = request.form["remindertype"]
+    reminder_date = request.form["reminderdate"]
+    description = request.form["description"]
+
+    db = get_connection()
+    cursor = db.cursor()
+
+    cursor.execute("""
+        SELECT PetID FROM Pets
+        WHERE PetName = %s AND UserID = %s
+    """, (pet_name, 1))
+
+    pets = cursor.fetchall()
+
+    if len(pets) != 1:
+        cursor.close()
+        db.close()
+        return "Pet not found or multiple pets have this name", 400
+
+    pet_id = pets[0][0]
+
+    cursor.execute("""
+        INSERT INTO Reminders
+        (PetID, ReminderType, ReminderDate, Description)
+        VALUES (%s, %s, %s, %s)
+    """, (pet_id, reminder_type, reminder_date, description))
+
+    db.commit()
+    cursor.close()
+    db.close()
+
+    return redirect("/reminderspage.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
