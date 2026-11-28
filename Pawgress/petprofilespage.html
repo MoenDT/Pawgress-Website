@@ -40,5 +40,28 @@
                 </tbody>
             </table>
         </section>
+        
+<script>
+fetch("/api/pets")
+    .then(response => response.json())
+    .then(pets => {
+        const table = document.getElementById("petsBody");
+
+        pets.forEach(pet => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${pet.PetName}</td>
+                <td>${pet.DateRegistered || "N/A"}</td>
+                <td>${pet.LastVetVisit || "N/A"}</td>
+                <td>View</td>
+            `;
+
+            table.appendChild(row);
+        });
+    })
+    .catch(error => console.error(error));
+</script>
+
     </body>
     </html>
